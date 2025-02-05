@@ -12,7 +12,15 @@
     "lint": "eslint . --fix",
     "build": "tsc && vite build",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "bun format",
+      "bun lint",
+      "bun test"
+    ]
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.4",
