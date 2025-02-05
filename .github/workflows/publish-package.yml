@@ -1,0 +1,23 @@
+name: publish on github
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish-gpr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+          registry-url: https://npm.pkg.github.com/
+          scope: "@SppamLite"
+      - run: bun install
+      # - run: bun run test
+      - run: bun run build
+      - run: bun publish
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
