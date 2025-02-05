@@ -17,7 +17,7 @@
     "build": "tsc && vite build",
     "sb": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "prepare": "husky"
+    "prepare": "bun run build"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
