@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
+
 import { peerDependencies } from "./package.json";
 
 export default defineConfig({
