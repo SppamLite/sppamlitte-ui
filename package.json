@@ -1,13 +1,10 @@
 {
-  "name": "@sppamlite/sppamlitte-ui",
+  "name": "sppamlitte-ui",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/SppamLite"
-  },
   "files": [
     "/dist"
   ],
