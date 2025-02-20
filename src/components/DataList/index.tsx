@@ -1,4 +1,10 @@
-import { Group, Pagination, Stack, Table } from "@mantine/core";
+import {
+  Group,
+  Pagination,
+  Stack,
+  Table,
+  type TableProps,
+} from "@mantine/core";
 import {
   type ColumnDef,
   flexRender,
@@ -6,6 +12,7 @@ import {
   getPaginationRowModel,
   getSortedRowModel,
   type PaginationState,
+  type TableOptions,
   useReactTable,
 } from "@tanstack/react-table";
 import React from "react";
@@ -14,9 +21,11 @@ import { useCallback, useState } from "react";
 export type Props<T> = {
   data: T[];
   columns: ColumnDef<T>[];
+  tableProps?: TableProps;
+  options?: TableOptions<T>;
 };
 
-const DataList = <T,>({ data, columns }: Props<T>) => {
+const DataList = <T,>({ data, columns, tableProps, options }: Props<T>) => {
   const [pagination, setPagination] = useState<PaginationState>({
     pageIndex: 0,
     pageSize: 10,
@@ -32,6 +41,7 @@ const DataList = <T,>({ data, columns }: Props<T>) => {
     state: {
       pagination,
     },
+    ...options,
   });
 
   const onPageChange = useCallback(
@@ -41,7 +51,12 @@ const DataList = <T,>({ data, columns }: Props<T>) => {
 
   return (
     <Stack>
-      <Table highlightOnHover withRowBorders={false} verticalSpacing="xs">
+      <Table
+        highlightOnHover
+        withRowBorders={false}
+        verticalSpacing="xs"
+        {...tableProps}
+      >
         <Table.Thead>
           {table.getHeaderGroups().map((headerGroup) => (
             <Table.Tr key={headerGroup.id}>

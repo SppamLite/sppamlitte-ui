@@ -1,3 +1,7 @@
 # sppamlitte-ui
 
-This package is for my personally projects. However you are welcome to use it :)
+sppamlitte-ui is a set of ui components built for dashboard applications.
+
+---
+🤠 Made for my personal projects, still under development 🚧.
+---
