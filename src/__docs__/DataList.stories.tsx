@@ -1,31 +1,17 @@
+import { faker } from "@faker-js/faker";
+import type { Story } from "@ladle/react";
 import { Button } from "@mantine/core";
-import type { StoryObj } from "@storybook/react";
 import React from "react";
 
 import DataList from "../components/DataList";
 
-const meta = {
-  title: "DataList",
-  component: DataList,
-  args: { data: [], columns: [] },
-};
-
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-type Cat = {
-  id: number;
-  name: string;
-  age: number;
-};
-
-export const Default: Story = {
-  args: {
-    data: [
+export const Default: Story = () => (
+  <DataList
+    data={[
       { id: 1, name: "Biru", age: 4 },
       { id: 2, name: "Pepe", age: 3 },
-    ] as Cat[],
-    columns: [
+    ]}
+    columns={[
       { accessorKey: "name" },
       { accessorKey: "age" },
       {
@@ -39,6 +25,35 @@ export const Default: Story = {
           </>
         ),
       },
-    ],
-  },
-};
+    ]}
+  />
+);
+
+const data = Array.from({ length: 100 }, (_, index) => ({
+  id: index,
+  name: faker.food.fruit(),
+  price: faker.commerce.price(),
+  quantity: faker.number.int({ min: 10, max: 100 }),
+}));
+
+export const Pagination: Story = () => (
+  <DataList
+    data={data}
+    columns={[
+      { accessorKey: "name" },
+      { accessorKey: "price" },
+      { accessorKey: "quantity" },
+      {
+        id: "actions",
+        cell: () => (
+          <>
+            <Button variant="subtle">Edit</Button>
+            <Button variant="subtle" color="red">
+              Delete
+            </Button>
+          </>
+        ),
+      },
+    ]}
+  />
+);

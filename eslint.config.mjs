@@ -27,7 +27,6 @@ export default [
       "prettier",
       "plugin:prettier/recommended",
       "plugin:react-hooks/recommended",
-      "plugin:storybook/recommended",
     ),
   ),
   includeIgnoreFile(gitignorePath),
@@ -38,7 +37,6 @@ export default [
       "simple-import-sort": simpleImportSort,
       react,
     },
-
     settings: {
       react: {
         version: "19.0",
@@ -51,7 +49,6 @@ export default [
       },
       parser: tsParser,
     },
-
     rules: {
       "react/react-in-jsx-scope": "off",
       "simple-import-sort/imports": "error",

@@ -1,0 +1,3 @@
+.ladle-resize-handle, .ladle-aside {
+  z-index: 1000;
+}
