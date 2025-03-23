@@ -64,8 +64,9 @@ const IconSettings = () => (
 export const Default: Story = () => {
   return (
     <MainLayout
+      display="flex"
       sidebar={
-        <Sidebar>
+        <Sidebar pos="relative">
           <NavLink label="Home" />
           <NavLink label="Components" />
           <NavLink label="Settings" />
@@ -85,8 +86,9 @@ export const Default: Story = () => {
 export const Collapsible: Story = () => {
   return (
     <MainLayout
+      display="flex"
       sidebar={
-        <Sidebar collapsible>
+        <Sidebar collapsible pos="relative">
           {(collapsed) => (
             <>
               <NavLink
