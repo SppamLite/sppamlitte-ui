@@ -1,43 +1,16 @@
 import { AppShell, type AppShellProps } from "@mantine/core";
-import React, {
-  cloneElement,
-  isValidElement,
-  type ReactElement,
-  type ReactNode,
-  useState,
-} from "react";
-
-type SidebarProps = {
-  collapsed: boolean;
-  onToggleCollapsed(): void;
-};
+import React, { type ReactNode } from "react";
 
 type Props = AppShellProps & {
-  sidebar: ReactElement<SidebarProps>;
+  sidebar: ReactNode;
   header?: ReactNode;
   footer?: ReactNode;
 };
 
 const MainLayout = ({ children, sidebar, ...rest }: Props) => {
-  const [collapsed, setCollapsed] = useState(false);
-  const onToggleCollapsed = () => setCollapsed((prev) => !prev);
-
-  const enhancedSidebar = isValidElement(sidebar)
-    ? cloneElement(sidebar, { collapsed, onToggleCollapsed })
-    : sidebar;
-
   return (
-    <AppShell
-      navbar={{
-        width: collapsed ? 96 : 300,
-        breakpoint: 0,
-      }}
-      header={{
-        height: 54,
-      }}
-      {...rest}
-    >
-      {enhancedSidebar}
+    <AppShell {...rest}>
+      {sidebar}
       {children}
     </AppShell>
   );
