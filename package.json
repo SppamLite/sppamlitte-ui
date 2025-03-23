@@ -1,13 +1,20 @@
 {
   "name": "sppamlitte-ui",
   "type": "module",
-  "version": "0.1.1",
+  "version": "0.1.2",
+  "author": "Sppam Litte",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
+  "license": "MIT",
   "files": [
     "/dist"
   ],
+  "homepage": "https://sppamlitte-ui.pages.dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SppamLite/sppamlitte-ui"
+  },
   "scripts": {
     "format": "prettier --write --parser typescript '**/*.{ts,tsx}'",
     "lint": "eslint . --fix",

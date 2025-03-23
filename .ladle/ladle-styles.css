@@ -1,3 +1,18 @@
 .ladle-resize-handle, .ladle-aside {
   z-index: 1000;
 }
+
+header {
+  background-color: var(--mantine-color-blue-1);
+  padding: var(--mantine-spacing-xs);
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  svg {
+    color: #003366;
+    transition: color ease-in-out 200ms;
+  }
+  a:hover svg {
+    color: white;
+  }
+}
